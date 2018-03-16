@@ -14,7 +14,7 @@ public class Main {
 
 	@GET
 	public String sayPlainTextHello() {
-		return "Hello Jersey";
+		return "Hello SAPIN";
 	}
 
 }

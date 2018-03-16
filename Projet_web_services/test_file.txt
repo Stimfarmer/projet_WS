@@ -1,0 +1,3 @@
+"etienne.sapin@insa-cvl.fr",21,"INSACVL",18000
+"jocelyn.jaouen@insa-cvl.fr",21,"INSACVL",18000
+"etiennesapin@orange.fr",21,"INSACVL",69530
