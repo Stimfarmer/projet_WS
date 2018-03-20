@@ -13,13 +13,11 @@ import javax.ws.rs.*;
 public class Main {
 
 	@GET
+	@Path("test")
 	public String helloWorld() {
-		CSVlikeHandler test = 
-				new CSVlikeHandler("email,age,org,postal_code\n" + 
-				"jocelyn.jaouen@insa-cvl.fr,21,INSACVL,18000\n" + 
-				"etiennesapin@orange.fr,21,INSACVL,69530");
+		CSVlikeHandler test = new CSVlikeHandler("user.csv");
 		test.showProperties();
-		return "Hello SAPIN";
+		return "Hello SAPIN Etienne";
 	}
 
 }
