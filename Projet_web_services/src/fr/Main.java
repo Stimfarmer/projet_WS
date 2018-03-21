@@ -11,15 +11,15 @@ import javax.ws.rs.*;
 @Path("/api")
 public class Main {
 	
-	@GET
-	@Path("test")
-//	@Consumes("text/plain")
-	public String helloWorld() {
-		XMLdatabase db = new XMLdatabase("user.csv");
+	@POST
+	@Path("xml_create/{file}")
+	public String helloWorld(@PathParam("file") String file) {
+		System.out.println("Param: " + file);
+		XMLdatabase db = new XMLdatabase(file);
 		db.showProperties();
 		System.out.println(db.getXMLformatted());
 		
-		return "Hello SAPIN Etienne";
+		return db.getXMLformatted();
 	}
 
 }
