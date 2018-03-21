@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "utilisateursType", propOrder = {
     "enregistrement"
 })
-@XmlRootElement(name="root-element-name")
+@XmlRootElement
 public class UtilisateursType {
 
     protected List<EnregistrementsType> enregistrement;
