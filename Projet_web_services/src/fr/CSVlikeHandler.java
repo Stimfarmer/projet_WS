@@ -6,6 +6,7 @@ package fr;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -17,6 +18,8 @@ public class CSVlikeHandler {
 	private int nb_rows;
 	
 	private int nb_columns;
+	
+	private InputStream filePath;
 
 	public int getNb_rows() {
 		return nb_rows;
@@ -51,6 +54,7 @@ public class CSVlikeHandler {
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath)));
 			this.nb_columns = reader.readLine().split(",").length;
+			this.filePath = getClass().getResourceAsStream(filePath);
 			this.nb_rows = 1;
 			while(reader.readLine() != null)
 			{
@@ -62,5 +66,13 @@ public class CSVlikeHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public InputStream getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = getClass().getResourceAsStream(filePath);
 	}
 }
