@@ -3,8 +3,6 @@
  */
 package fr;
 
-import java.io.File;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
