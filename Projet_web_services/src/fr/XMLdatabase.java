@@ -4,10 +4,13 @@
 package fr;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -33,11 +36,26 @@ public class XMLdatabase extends CSVlikeHandler {
 	
 	private String XMLformatted;
 	
+	private String XMLfileName;
+	
 	public XMLdatabase(String filePath) {
 		super(filePath);
 		this.XMLdatabaseBuilder();
 		this.builJAXB();
-		
+	}
+	
+	public void createAndWriteXML()
+	{
+		PrintWriter writer;
+		try {
+			writer = new PrintWriter(this.getFileName().substring(0, this.getFileName().lastIndexOf('.')) + ".xml", "UTF-8");
+			writer.println(this.getXMLformatted());
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static String prettyFormat(String input, int indent) {
@@ -140,6 +158,14 @@ public class XMLdatabase extends CSVlikeHandler {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public String getXMLfileName() {
+		return XMLfileName;
+	}
+
+	public void setXMLfileName(String xMLfileName) {
+		XMLfileName = xMLfileName;
 	}
 
 }

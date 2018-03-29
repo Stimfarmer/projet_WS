@@ -20,6 +20,8 @@ public class CSVlikeHandler {
 	private int nb_columns;
 	
 	private InputStream filePath;
+	
+	private String fileName;
 
 	public int getNb_rows() {
 		return nb_rows;
@@ -51,6 +53,7 @@ public class CSVlikeHandler {
 	
 	public CSVlikeHandler(String filePath) 
 	{
+		this.setFileName(filePath);
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath)));
 			this.nb_columns = reader.readLine().split(",").length;
@@ -74,5 +77,13 @@ public class CSVlikeHandler {
 
 	public void setFilePath(String filePath) {
 		this.filePath = getClass().getResourceAsStream(filePath);
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }
